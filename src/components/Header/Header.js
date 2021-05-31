@@ -1,9 +1,9 @@
 import "./Header.css";
-
+import Zoom from "react-reveal/Zoom";
 const Header = () => {
   return (
     <span onClick={() => window.scroll(0, 0)} className="header">
-      Movie Recomendation System
+      <Zoom>Movie Recomendation System</Zoom>
     </span>
   );
 };
