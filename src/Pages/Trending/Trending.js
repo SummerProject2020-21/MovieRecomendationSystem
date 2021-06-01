@@ -1,10 +1,8 @@
-import React from "react";
-import ImgSlider from "./ImgSlider";
-import Cards from "../../components/Cards/cards";
 import axios from "axios";
 import "./Trending.css";
 import { useEffect, useState } from "react";
-// import CustomPagination from "../../components/Pagination/CustomPagination";
+import SingleContent from "../../components/SingleContent/SingleContent";
+import CustomPagination from "../../components/Pagination/CustomPagination";
 
 const Trending = () => {
   const [page, setPage] = useState(1);
@@ -26,13 +24,11 @@ const Trending = () => {
 
   return (
     <div>
-      <ImgSlider />
-      <br />
-      <span className="pageTitle">Trending</span>
+      <span className="pageTitle">Trending Today</span>
       <div className="trending">
         {content &&
           content.map((c) => (
-            <Cards
+            <SingleContent
               key={c.id}
               id={c.id}
               poster={c.poster_path}
@@ -43,7 +39,7 @@ const Trending = () => {
             />
           ))}
       </div>
-      {/* <CustomPagination setPage={setPage} /> */}
+      <CustomPagination setPage={setPage} />
     </div>
   );
 };

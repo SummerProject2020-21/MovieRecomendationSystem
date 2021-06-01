@@ -5,12 +5,10 @@
   display: flex;
   justify-content: center;
   text-transform: uppercase;
-  font-weight: bold ;
-  /* background-image: linear-gradient(#0a1931 ,#283d61  , #122442 ); */
-  background-color: #122442;
+  background-color: #39445a;
   font-family: "Montserrat", sans-serif;
-  font-size: 3vw;
-  padding-bottom: 10px;
+  font-size: 5vw;
+  padding-bottom: 15px;
   box-shadow: 0px 1px 5px black;
   color: white;
   z-index: 100;
