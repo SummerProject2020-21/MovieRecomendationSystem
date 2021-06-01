@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import SimpleBottomNavigation from "./components/MainNav";
 import Trending from "./Pages/Trending/Trending";
 import { Container } from "@material-ui/core";
+require("dotenv").config();
 
 function App() {
   return (
