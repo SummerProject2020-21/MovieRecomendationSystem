@@ -1,9 +1,9 @@
 import "./Header.css";
-
+import Fade from "react-reveal/Fade";
 const Header = () => {
   return (
     <span onClick={() => window.scroll(0, 0)} className="header">
-      🎬 Entertainment Hub 🎥
+      <Fade top> 🎬 Movie Recommendation System</Fade>
     </span>
   );
 };
