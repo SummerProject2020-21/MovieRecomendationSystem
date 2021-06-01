@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./ImgSlider.scss";
 import slider1 from "../../components/Images/slider-badging.jpg";
 import slider2 from "../../components/Images/slider-scale.jpg";
 import slider3 from "../../components/Images/slider-badag.jpg";
