@@ -6,6 +6,8 @@ import SingleContent from "../../components/SingleContent/SingleContent";
 import useGenre from "../../hooks/useGenre";
 import Slide from "react-reveal/Slide";
 import Zoom from "react-reveal/Zoom";
+import Gallery from "../../components/Carousel/Carousel";
+
 const Series = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -31,6 +33,8 @@ const Series = () => {
 
   return (
     <div>
+      <Gallery />
+      <br />
       <Zoom>
         <span className="pageTitle">Discover Series</span>
       </Zoom>

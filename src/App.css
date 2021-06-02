@@ -8,6 +8,7 @@
   color: white;
   padding-top: 130px;
   padding-bottom: 70px;
+  overflow: hidden;
 }
 
 @media (max-width: 700px) {
@@ -20,7 +21,7 @@
   text-transform: uppercase;
   display: flex;
   justify-content: center;
-  font-family: 'Baloo Tammudu 2', cursive;
+  font-family: "Baloo Tammudu 2", cursive;
   font-size: 2vw;
   padding: 4px;
   border-radius: 50px;

@@ -12,7 +12,7 @@ import {
 import "./ContentModal.css";
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-import Carousel from "../Carousel/Carousel";
+import Gallery from "../Carousel/Corousel2";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     width: "90%",
     height: "80%",
-    backgroundColor: "#39445a",
-    border: "1px solid #282c34",
-    borderRadius: 10,
+    backgroundColor: "#24468b",
+    border: "1px solid green",
+    borderRadius: 15,
     color: "white",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(1, 1, 3),
@@ -132,7 +132,7 @@ export default function TransitionsModal({ children, media_type, id }) {
                   </span>
 
                   <div>
-                    <Carousel id={id} media_type={media_type} />
+                    <Gallery id={id} media_type={media_type} />
                   </div>
 
                   <Button

@@ -6,6 +6,7 @@ import useGenre from "../../hooks/useGenre";
 import CustomPagination from "../../components/Pagination/CustomPagination";
 import Slide from "react-reveal/Slide";
 import Zoom from "react-reveal/Zoom";
+import Gallery from "../../components/Carousel/Carousel";
 const Movies = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -31,6 +32,8 @@ const Movies = () => {
 
   return (
     <div>
+      <Gallery />
+      <br />
       <Zoom>
         <span className="pageTitle">Discover Movies</span>
       </Zoom>

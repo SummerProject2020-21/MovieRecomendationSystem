@@ -1,62 +1,111 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
 import { img_300, noPicture } from "../../Config/config";
-import "./Carousel.css";
-
-const handleDragStart = (e) => e.preventDefault();
+import styled from "styled-components";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import slider1 from "../../components/Images/slider-badging.jpg";
+import slider2 from "../../components/Images/slider-scale.jpg";
+import slider3 from "../../components/Images/slider-badag.jpg";
+import slider4 from "../../components/Images/slider-scales.jpg";
 
 const Gallery = ({ id, media_type }) => {
-  const [credits, setCredits] = useState([]);
-
-  const items = credits.map((c) => (
-    <div className="carouselItem">
-      <img
-        src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
-        alt={c?.name}
-        onDragStart={handleDragStart}
-        className="carouselItem__img"
-      />
-      <b className="carouselItem__txt">{c?.name}</b>
-    </div>
-  ));
-
-  const responsive = {
-    0: {
-      items: 3,
-    },
-    512: {
-      items: 5,
-    },
-    1024: {
-      items: 7,
-    },
+  let settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    "max-width": "100px",
   };
-
-  const fetchCredits = async () => {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
-    );
-    setCredits(data.cast);
-  };
-
-  useEffect(() => {
-    fetchCredits();
-    // eslint-disable-next-line
-  }, []);
 
   return (
-    <AliceCarousel
-      mouseTracking
-      infinite
-      disableDotsControls
-      disableButtonsControls
-      responsive={responsive}
-      items={items}
-      autoPlay
-    />
+    <div>
+      <Carousel {...settings}>
+        <Wrap>
+          <a>
+            <img src={slider1} alt="" />
+          </a>
+        </Wrap>
+
+        <Wrap>
+          <a>
+            <img src={slider2} alt="" />
+          </a>
+        </Wrap>
+
+        <Wrap>
+          <a>
+            <img src={slider3} alt="" />
+          </a>
+        </Wrap>
+
+        <Wrap>
+          <a>
+            <img src={slider4} alt="" />
+          </a>
+        </Wrap>
+      </Carousel>
+    </div>
   );
 };
+
+const Carousel = styled(Slider)`
+  /* margin-top: 20px; */
+  & > button {
+    opacity: 0;
+    height: 100%;
+    width: 5vw;
+    z-index: 1;
+    &:hover {
+      opacity: 1;
+      transition: opacity 0.2s ease 0s;
+    }
+  }
+  ul li button {
+    &:before {
+      font-size: 10px;
+      color: rgb(150, 158, 171);
+    }
+  }
+  li.slick-active button:before {
+    color: white;
+  }
+  .slick-list {
+    overflow: initial;
+  }
+  .slick-prev {
+    left: -75px;
+  }
+  .slick-next {
+    right: -75px;
+  }
+`;
+
+const Wrap = styled.div`
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  a {
+    border-radius: 4px;
+    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
+      rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding: 4px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    &:hover {
+      padding: 0;
+      border: 4px solid rgba(249, 249, 249, 0.8);
+      transition-duration: 300ms;
+    }
+  }
+`;
 
 export default Gallery;

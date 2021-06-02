@@ -5,6 +5,7 @@ import SingleContent from "../../components/SingleContent/SingleContent";
 import CustomPagination from "../../components/Pagination/CustomPagination";
 import Slide from "react-reveal/Slide";
 import Zoom from "react-reveal/Zoom";
+import Gallery from "../../components/Carousel/Carousel";
 const Trending = () => {
   const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
@@ -24,27 +25,31 @@ const Trending = () => {
   }, [page]);
 
   return (
-    <div>
-      <Zoom>
-        <span className="pageTitle">Trending Today</span>
-      </Zoom>
-      <div className="trending">
-        {content &&
-          content.map((c) => (
-            <Slide bottom>
-              <SingleContent
-                key={c.id}
-                id={c.id}
-                poster={c.poster_path}
-                title={c.title || c.name}
-                date={c.first_air_date || c.release_date}
-                media_type={c.media_type}
-                vote_average={c.vote_average}
-              />
-            </Slide>
-          ))}
+    <div style={{}}>
+      <Gallery />
+      <br />
+      <div>
+        <Zoom>
+          <span className="pageTitle">Trending Today</span>
+        </Zoom>
+        <div className="trending">
+          {content &&
+            content.map((c) => (
+              <Slide bottom>
+                <SingleContent
+                  key={c.id}
+                  id={c.id}
+                  poster={c.poster_path}
+                  title={c.title || c.name}
+                  date={c.first_air_date || c.release_date}
+                  media_type={c.media_type}
+                  vote_average={c.vote_average}
+                />
+              </Slide>
+            ))}
+        </div>
+        <CustomPagination setPage={setPage} />
       </div>
-      <CustomPagination setPage={setPage} />
     </div>
   );
 };
