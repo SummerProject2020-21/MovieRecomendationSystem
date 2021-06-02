@@ -36,7 +36,7 @@
   height: 90%;
   display: flex;
   flex-direction: column;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   justify-content: space-evenly;
   font-weight: 300;
 }

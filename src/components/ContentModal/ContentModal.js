@@ -8,7 +8,7 @@ import {
   img_500,
   unavailable,
   unavailableLandscape,
-} from "../../config/config";
+} from "../../Config/config";
 import "./ContentModal.css";
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
