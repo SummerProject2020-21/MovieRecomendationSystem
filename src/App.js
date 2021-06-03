@@ -7,6 +7,8 @@ import Series from "./Pages/Series/Series";
 import Trending from "./Pages/Trending/Trending";
 import Search from "./Pages/Search/Search";
 import { Container } from "@material-ui/core";
+import Signup from "./Pages/Signup/Signup";
+import Signin from "./Pages/Signin/Signin";
 
 function App() {
   return (
@@ -15,10 +17,13 @@ function App() {
       <div className="app">
         <Container>
           <Switch>
-            <Route path="/" component={Trending} exact />
             <Route path="/movies" component={Movies} />
             <Route path="/series" component={Series} />
             <Route path="/search" component={Search} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/" component={Signin} exact />
+            <Route path="/signin" component={Signin} />
+            <Route path="/signup" component={Signup} />
           </Switch>
         </Container>
       </div>
