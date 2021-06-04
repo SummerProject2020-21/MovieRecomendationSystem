@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/MovieRecomendationSystem/static/css/main.1c34d331.chunk.css",
+    "main.js": "/MovieRecomendationSystem/static/js/main.5037d69c.chunk.js",
+    "main.js.map": "/MovieRecomendationSystem/static/js/main.5037d69c.chunk.js.map",
+    "runtime-main.js": "/MovieRecomendationSystem/static/js/runtime-main.e9a486ee.js",
+    "runtime-main.js.map": "/MovieRecomendationSystem/static/js/runtime-main.e9a486ee.js.map",
+    "static/css/2.556f0b12.chunk.css": "/MovieRecomendationSystem/static/css/2.556f0b12.chunk.css",
+    "static/js/2.3822bb61.chunk.js": "/MovieRecomendationSystem/static/js/2.3822bb61.chunk.js",
+    "static/js/2.3822bb61.chunk.js.map": "/MovieRecomendationSystem/static/js/2.3822bb61.chunk.js.map",
+    "index.html": "/MovieRecomendationSystem/index.html",
+    "static/css/2.556f0b12.chunk.css.map": "/MovieRecomendationSystem/static/css/2.556f0b12.chunk.css.map",
+    "static/css/main.1c34d331.chunk.css.map": "/MovieRecomendationSystem/static/css/main.1c34d331.chunk.css.map",
+    "static/js/2.3822bb61.chunk.js.LICENSE.txt": "/MovieRecomendationSystem/static/js/2.3822bb61.chunk.js.LICENSE.txt",
+    "static/media/slick-theme.css": "/MovieRecomendationSystem/static/media/slick.c94f7671.ttf",
+    "static/media/slider-badag.36599446.jpg": "/MovieRecomendationSystem/static/media/slider-badag.36599446.jpg",
+    "static/media/slider-badging.b33dd5b6.jpg": "/MovieRecomendationSystem/static/media/slider-badging.b33dd5b6.jpg",
+    "static/media/slider-scale.172c6ead.jpg": "/MovieRecomendationSystem/static/media/slider-scale.172c6ead.jpg",
+    "static/media/slider-scales.f921e314.jpg": "/MovieRecomendationSystem/static/media/slider-scales.f921e314.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e9a486ee.js",
+    "static/css/2.556f0b12.chunk.css",
+    "static/js/2.3822bb61.chunk.js",
+    "static/css/main.1c34d331.chunk.css",
+    "static/js/main.5037d69c.chunk.js"
+  ]
+}
