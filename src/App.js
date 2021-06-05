@@ -9,6 +9,7 @@ import Search from "./Pages/Search/Search";
 import { Container } from "@material-ui/core";
 import Signup from "./Pages/Signup/Signup";
 import Signin from "./Pages/Signin/Signin";
+import PreviousMovies from "./Pages/PreviousMovies/PreviousMovies";
 
 function App() {
   return (
@@ -21,9 +22,10 @@ function App() {
             <Route path="/series" component={Series} />
             <Route path="/search" component={Search} />
             <Route path="/signup" component={Signup} />
-            <Route path="/" component={Signin} exact />
+            <Route path="/" component={PreviousMovies} exact />
             <Route path="/signin" component={Signin} />
             <Route path="/signup" component={Signup} />
+            <Route path="/pastmovies" component={PreviousMovies} />
           </Switch>
         </Container>
       </div>

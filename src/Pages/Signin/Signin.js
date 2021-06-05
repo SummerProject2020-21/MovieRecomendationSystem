@@ -14,7 +14,7 @@ export default function Signin() {
           <br />
           <input type="password" />
           <br />
-          <button>Create Account</button>
+          <button>Sign In</button>
           <br />
           <br />
           <a href="/signup" className="signupa">

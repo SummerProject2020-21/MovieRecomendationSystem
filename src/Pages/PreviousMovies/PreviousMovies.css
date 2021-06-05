@@ -1,0 +1,52 @@
+.prevmoviecontainer{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px 25px;
+    width: 50%;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.7);
+    box-shadow: 0 0 10px rgba(255,255,255,.3);
+    display : flex;
+    flex-direction : row;
+}
+.prevmoviecontainer-box{
+    width: 50%;
+    margin: 10px;
+}
+.prevmoviecontainer h1{
+    text-align: left;
+    color: #fafafa;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    border-bottom: 4px solid #2979ff;
+}
+.prevmoviecontainer p{
+    text-align: left;
+    color: #fafafa;
+    font-size: 20px;
+    font-family: "Baloo Tammudu 2", cursive;
+}
+.prevmoviecontainer label{
+    text-align: left;
+    color: #90caf9;
+}
+.prevmoviecontainer form input{
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #2979ff;
+    color: #fff;
+    font-size: 20px;
+}
+.prevmoviecontainer form button{
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    background-color:#2979ff;
+    font-size: 18px;
+    color: #fafafa;
+}
