@@ -10,31 +10,84 @@ export default function Discussion() {
   return (
     <div>
       <Paper elevation={3} className="DiscussionPaper">
-        <div className="DiscussionHeading">
+        <div style={{ width: "100%", display: "flex" }}>
           <div style={{ float: "left", width: "50%" }}>
-            <h1 style={{ margin: "0px" }}>Heading</h1>
+            <h1 style={{ margin: "0px", padding: "0px" }}>Heading</h1>
           </div>
           <div style={{ width: "50%" }}>
             <div style={{ float: "right" }}>
-              <p
-                style={{
-                  fontSize: "1rem",
-                  color: "#8b8b8b",
-                  fontStyle: "italic",
-                  fontWeight: "bold",
-                  margin: "0px",
-                  textAlign: "right",
-                }}
+              {" "}
+              <IconButton aria-label="upload picture" component="span">
+                <div
+                  style={{
+                    display: "flex",
+                    backgroundColor: "#e1e5ea",
+                    borderRadius: "30%",
+                    padding: "3px",
+                  }}
+                >
+                  <div>
+                    <ThumbUpIcon style={{ color: "green" }} />
+                  </div>
+                  <div>
+                    <p
+                      style={{
+                        margin: "0px",
+                        fontSize: "20px",
+                      }}
+                    >
+                      12
+                    </p>
+                  </div>
+                </div>
+              </IconButton>
+              <IconButton
+                color="primary"
+                aria-label="upload picture"
+                component="span"
               >
-                -Name
-                <br />
-                Date
-              </p>
+                <div
+                  style={{
+                    display: "flex",
+                    backgroundColor: "#e1e5ea",
+                    borderRadius: "30%",
+                    padding: "3px",
+                  }}
+                >
+                  <div>
+                    <ThumbDownIcon style={{ color: "red" }} />
+                  </div>
+                  <div>
+                    <p
+                      style={{
+                        margin: "0px",
+                        fontSize: "20px",
+                      }}
+                    >
+                      12
+                    </p>
+                  </div>
+                </div>
+              </IconButton>
             </div>
           </div>
         </div>
         <div className="DiscussionContent">
-          <p>
+          <p style={{ marginTop: "0px" }}>
+            <br />
+            <span
+              style={{
+                fontSize: "1rem",
+                color: "#8b8b8b",
+                fontStyle: "italic",
+                fontWeight: "bold",
+                margin: "0px",
+                padding: "0px",
+              }}
+            >
+              Posted by: Name
+            </span>
+            <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
             imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae
             scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices
@@ -46,11 +99,33 @@ export default function Discussion() {
             Donec vitae dui eget tellus gravida venenatis. Integer fringilla
             congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
             Cras ac leo purus. Mauris quis diam velit.
+            <br />
+            <span
+              style={{
+                fontSize: "1rem",
+                color: "#8b8b8b",
+                fontStyle: "italic",
+                fontWeight: "bold",
+                margin: "0px",
+              }}
+            >
+              Posted on: date
+            </span>
+            <br />
+            <br />
           </p>
         </div>
+
         <div className="CommentBox">
-          <div style={{ width: "100%", display: "flex", padding: "auto" }}>
-            <div style={{ width: "70%" }}>
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              padding: "auto",
+              margin: "auto",
+            }}
+          >
+            <div style={{ width: "90%" }}>
               <TextField
                 id="outlined-secondary"
                 label="Outlined secondary"
@@ -61,7 +136,7 @@ export default function Discussion() {
             </div>
             <div
               style={{
-                width: "30%",
+                width: "10%",
                 float: "right",
                 padding: "auto",
               }}
@@ -74,20 +149,34 @@ export default function Discussion() {
                 <div
                   style={{
                     float: "left",
-                    width: "30%",
+                    width: "100%",
                     hight: "100%",
                     padding: "auto",
                     margin: "auto",
                     paddingLeft: "3px",
                   }}
                 >
-                  <div>
-                    <Button variant="contained" color="primary">
+                  <div className="DiscussBtn">
+                    {/* <Button variant="contained" color="primary">
                       <b>Submit</b>
-                    </Button>
+                    </Button> */}
+                    <button id="btn">
+                      <p id="btnText">Submit</p>
+                      <div class="check-box">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 50 50"
+                        >
+                          <path
+                            fill="transparent"
+                            d="M14.1 27.2l7.1 7.2 16.7-16.8"
+                          />
+                        </svg>
+                      </div>
+                    </button>
                   </div>
                 </div>
-                <div style={{ width: "70%" }}>
+                {/* <div style={{ width: "60%" }}>
                   <div style={{ float: "right" }}>
                     {" "}
                     <IconButton aria-label="upload picture" component="span">
@@ -142,8 +231,8 @@ export default function Discussion() {
                         </div>
                       </div>
                     </IconButton>
-                  </div>
-                </div>
+                  </div> 
+                </div>*/}
               </div>
             </div>
           </div>

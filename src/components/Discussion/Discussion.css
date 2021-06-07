@@ -14,12 +14,52 @@
 }
 .DiscussionContent{
     width:100%;
+    margin-top: 0px;
+    padding-top: "0px";
 
 }
 .CommentBox{
-    
     width:100%;
 }
 .CommentBoxInput{
     width:100%;
 }
+.DiscussBtn button {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: #24468b;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.DiscussBtn .check-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  box-shadow: 0 0 12px -2px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  right: -40px;
+  opacity: 0;
+}
+
+
+
+.DiscussBtn button:hover {
+  background: #082764;
+  transition: 1s;
+}
+.DiscussBtn .active .check-box {
+  right: 0;
+  opacity: 1;
+  transition: 1s;
+}
+
