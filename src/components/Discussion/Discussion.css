@@ -4,8 +4,14 @@
     padding:15px;
     
 }
-.DiscussionPaper h1{
+.DiscussionPaper h1, .DiscussionPaper h2, .DiscussionPaper h3{
     font-family: "Baloo Tammudu 2", cursive;
+    margin: 0px;
+    padding:0px;
+}
+.DiscussionPaper p{
+    margin: 0px;
+    padding:0px;
 }
 .DiscussionHeading{
     display: flex;
@@ -26,7 +32,7 @@
 }
 .DiscussBtn button {
   width: 100%;
-  height: 100%;
+  height: 60px;
   border: 0;
   outline: none;
   background: #24468b;

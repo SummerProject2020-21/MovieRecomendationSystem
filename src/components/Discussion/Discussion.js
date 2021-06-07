@@ -162,79 +162,18 @@ export default function Discussion() {
                     </Button> */}
                     <button id="btn">
                       <p id="btnText">Submit</p>
-                      <div class="check-box">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 50 50"
-                        >
-                          <path
-                            fill="transparent"
-                            d="M14.1 27.2l7.1 7.2 16.7-16.8"
-                          />
-                        </svg>
-                      </div>
                     </button>
                   </div>
                 </div>
-                {/* <div style={{ width: "60%" }}>
-                  <div style={{ float: "right" }}>
-                    {" "}
-                    <IconButton aria-label="upload picture" component="span">
-                      <div
-                        style={{
-                          display: "flex",
-                          backgroundColor: "#e1e5ea",
-                          borderRadius: "30%",
-                          padding: "3px",
-                        }}
-                      >
-                        <div>
-                          <ThumbUpIcon style={{ color: "green" }} />
-                        </div>
-                        <div>
-                          <p
-                            style={{
-                              margin: "0px",
-                              fontSize: "20px",
-                            }}
-                          >
-                            12
-                          </p>
-                        </div>
-                      </div>
-                    </IconButton>
-                    <IconButton
-                      color="primary"
-                      aria-label="upload picture"
-                      component="span"
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          backgroundColor: "#e1e5ea",
-                          borderRadius: "30%",
-                          padding: "3px",
-                        }}
-                      >
-                        <div>
-                          <ThumbDownIcon style={{ color: "red" }} />
-                        </div>
-                        <div>
-                          <p
-                            style={{
-                              margin: "0px",
-                              fontSize: "20px",
-                            }}
-                          >
-                            12
-                          </p>
-                        </div>
-                      </div>
-                    </IconButton>
-                  </div> 
-                </div>*/}
               </div>
             </div>
+          </div>
+        </div>
+        <div>
+          <h2>Comments:</h2>
+          <div style={{ width: "100%", borderBottom: "1px solid black" }}>
+            <h3>Name</h3>
+            <p>Comment</p>
           </div>
         </div>
       </Paper>
