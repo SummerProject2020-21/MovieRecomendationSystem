@@ -1,0 +1,25 @@
+.DiscussionPaper{
+    width: 90%;
+    margin: auto;
+    padding:15px;
+    
+}
+.DiscussionPaper h1{
+    font-family: "Baloo Tammudu 2", cursive;
+}
+.DiscussionHeading{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.DiscussionContent{
+    width:100%;
+
+}
+.CommentBox{
+    
+    width:100%;
+}
+.CommentBoxInput{
+    width:100%;
+}

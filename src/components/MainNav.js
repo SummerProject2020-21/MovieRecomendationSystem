@@ -13,8 +13,13 @@ const useStyles = makeStyles({
     width: "100%",
     position: "fixed",
     bottom: 0,
-    backgroundColor: "#122442",
+    // backgroundColor: "#122442",
+    backgroundColor: "#24468b",
     zIndex: 100,
+  },
+  nav: {
+    backgroundColor: "#122442",
+    borderRadius: "50%",
   },
 });
 
@@ -50,6 +55,7 @@ export default function SimpleBottomNavigation() {
             style={{ color: "white" }}
             label="Trending"
             icon={<WhatshotIcon />}
+            className={classes.nav}
           />
 
           <BottomNavigationAction
