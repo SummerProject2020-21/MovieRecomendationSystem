@@ -11,6 +11,7 @@ import Signup from "./Pages/Signup/Signup";
 import Signin from "./Pages/Signin/Signin";
 import PreviousMovies from "./Pages/PreviousMovies/PreviousMovies";
 import Discussion from "./components/Discussion/Discussion";
+import AllDiscussion from "./components/AllDiscussions/AllDiscussion";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" component={Discussion} exact />
             <Route path="/signin" component={Signin} />
             <Route path="/signup" component={Signup} />
+            <Route path="/alldiscussions" component={AllDiscussion} />
             <Route path="/pastmovies" component={PreviousMovies} />
             <Route path="/fourms" component={Discussion} />
           </Switch>

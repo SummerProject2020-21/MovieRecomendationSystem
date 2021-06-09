@@ -1,11 +1,11 @@
 import React from "react";
-import "./Discussion.css";
 import Paper from "@material-ui/core/Paper";
-import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
-export default function Discussion() {
+
+export default function AllDiscussion() {
   return (
     <div>
       <Paper elevation={3} className="DiscussionPaper">
@@ -73,28 +73,6 @@ export default function Discussion() {
         </div>
         <div className="DiscussionContent">
           <p style={{ marginTop: "0px" }}>
-            <span
-              style={{
-                fontSize: "1rem",
-                color: "#1167b1",
-                fontStyle: "italic",
-                margin: "0px",
-                padding: "0px",
-              }}
-            >
-              #hash-tag
-            </span>{" "}
-            <span
-              style={{
-                fontSize: "1rem",
-                color: "#1167b1",
-                fontStyle: "italic",
-                margin: "0px",
-                padding: "0px",
-              }}
-            >
-              #hash-tag
-            </span>
             <br />
             <span
               style={{
@@ -109,7 +87,6 @@ export default function Discussion() {
               Posted by: Name
             </span>
             <br />
-            <br />
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
             imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae
             scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices
@@ -121,7 +98,6 @@ export default function Discussion() {
             Donec vitae dui eget tellus gravida venenatis. Integer fringilla
             congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
             Cras ac leo purus. Mauris quis diam velit.
-            <br />
             <br />
             <span
               style={{
@@ -137,70 +113,14 @@ export default function Discussion() {
             <br />
             <br />
           </p>
-        </div>
-
-        <div className="CommentBox">
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              padding: "auto",
-              margin: "auto",
-            }}
-          >
-            <div style={{ width: "90%" }}>
-              <TextField
-                id="outlined-secondary"
-                label="Outlined secondary"
-                variant="outlined"
-                color="secondary"
-                className="CommentBoxInput"
-              />
-            </div>
-            <div
-              style={{
-                width: "10%",
-                float: "right",
-                padding: "auto",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                }}
-              >
-                <div
-                  style={{
-                    float: "left",
-                    width: "100%",
-                    hight: "100%",
-                    padding: "auto",
-                    margin: "auto",
-                    paddingLeft: "3px",
-                  }}
-                >
-                  <div className="DiscussBtn">
-                    {/* <Button variant="contained" color="primary">
-                      <b>Submit</b>
-                    </Button> */}
-                    <button id="btn">
-                      <p id="btnText">Submit</p>
-                    </button>
-                  </div>
-                </div>
+          <div style={{ width: "100%", display: "flex" }}>
+            <div style={{ width: "100%" }}>
+              <div style={{ float: "right" }}>
+                <Button variant="contained" color="primary">
+                  <b>MORE</b>
+                </Button>
               </div>
             </div>
-          </div>
-        </div>
-        <div>
-          <h2>Comments:</h2>
-          <div style={{ width: "100%", borderBottom: "1px solid black" }}>
-            <h3>Name</h3>
-            <p>Comment</p>
-          </div>
-          <div style={{ width: "100%", borderBottom: "1px solid black" }}>
-            <h3>Name</h3>
-            <p>Comment</p>
           </div>
         </div>
       </Paper>
