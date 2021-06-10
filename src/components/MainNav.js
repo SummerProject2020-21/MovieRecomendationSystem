@@ -6,6 +6,7 @@ import TvIcon from "@material-ui/icons/Tv";
 import MovieIcon from "@material-ui/icons/Movie";
 import SearchIcon from "@material-ui/icons/Search";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
+import AccountBox from "@material-ui/icons/AccountBox";
 import { useHistory } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 const useStyles = makeStyles({
@@ -13,13 +14,8 @@ const useStyles = makeStyles({
     width: "100%",
     position: "fixed",
     bottom: 0,
-    // backgroundColor: "#122442",
-    backgroundColor: "#24468b",
-    zIndex: 100,
-  },
-  nav: {
     backgroundColor: "#122442",
-    borderRadius: "50%",
+    zIndex: 100,
   },
 });
 
@@ -34,8 +30,10 @@ export default function SimpleBottomNavigation() {
     } else if (value === 1) {
       history.push("/movies");
     } else if (value === 2) {
-      history.push("/series");
+      history.push("/signin");
     } else if (value === 3) {
+      history.push("/series");
+    } else if (value == 4) {
       history.push("/search");
     }
   }, [value, history]);
@@ -55,21 +53,22 @@ export default function SimpleBottomNavigation() {
             style={{ color: "white" }}
             label="Trending"
             icon={<WhatshotIcon />}
-            className={classes.nav}
           />
-
           <BottomNavigationAction
             style={{ color: "white" }}
             label="Movies"
             icon={<MovieIcon />}
           />
-
+          <BottomNavigationAction
+            style={{ color: "white" }}
+            label="Login"
+            icon={<AccountBox />}
+          />
           <BottomNavigationAction
             style={{ color: "white" }}
             label="TV Series"
             icon={<TvIcon />}
           />
-
           <BottomNavigationAction
             style={{ color: "white" }}
             label="Search"

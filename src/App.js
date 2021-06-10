@@ -20,13 +20,14 @@ function App() {
       <div className="app">
         <Container>
           <Switch>
-            <Route path="/movies" component={Movies} />
-            <Route path="/series" component={Series} />
-            <Route path="/search" component={Search} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/" component={Discussion} exact />
-            <Route path="/signin" component={Signin} />
-            <Route path="/signup" component={Signup} />
+            <Route path="/" component={Trending} exact />
+            <Route path="/movies" component={Movies} exact />
+            <Route path="/series" component={Series} exact />
+            <Route path="/search" component={Search} exact />
+            <Route path="/signup" component={Signup} exact />
+            <Route path="/signin" component={Signin} exact />
+            <Route path="/signup" component={Signup} exact />
+            <Route path="/discussion" component={Discussion} exact />
             <Route path="/alldiscussions" component={AllDiscussion} />
             <Route path="/pastmovies" component={PreviousMovies} />
             <Route path="/fourms" component={Discussion} />
