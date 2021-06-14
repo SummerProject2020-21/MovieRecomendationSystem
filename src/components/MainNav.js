@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(100);
+  const [value, setValue] = React.useState(0);
   const history = useHistory();
   const [login, setlogin] = React.useState("Login");
 
