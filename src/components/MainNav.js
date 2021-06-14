@@ -7,6 +7,7 @@ import MovieIcon from "@material-ui/icons/Movie";
 import SearchIcon from "@material-ui/icons/Search";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
 import AccountBox from "@material-ui/icons/AccountBox";
+import ForumIcon from "@material-ui/icons/Forum";
 import { useHistory } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 const useStyles = makeStyles({
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
 
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(100);
   const history = useHistory();
   const [login, setlogin] = React.useState("Login");
 
@@ -40,6 +41,8 @@ export default function SimpleBottomNavigation() {
       history.push("/series");
     } else if (value == 4) {
       history.push("/search");
+    } else if (value == 5) {
+      history.push("/discussion");
     }
   }, [value, history]);
 
@@ -78,6 +81,11 @@ export default function SimpleBottomNavigation() {
             style={{ color: "white" }}
             label="Search"
             icon={<SearchIcon />}
+          />
+          <BottomNavigationAction
+            style={{ color: "white" }}
+            label="Discuss"
+            icon={<ForumIcon />}
           />
         </BottomNavigation>
       </Fade>
