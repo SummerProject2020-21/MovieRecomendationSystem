@@ -14,6 +14,10 @@ import Discussion from "./components/Discussion/Discussion";
 import AllDiscussion from "./components/AllDiscussions/AllDiscussion";
 
 function App() {
+  function Logout() {
+    localStorage.clear();
+    window.location.reload(false);
+  }
   return (
     <BrowserRouter>
       <Header />
@@ -35,6 +39,13 @@ function App() {
         </Container>
       </div>
       <SimpleBottomNavigation />
+      {localStorage.getItem("name") !== null && (
+        <div class="mybutton">
+          <button class="logout" onClick={Logout}>
+            Logout
+          </button>
+        </div>
+      )}
     </BrowserRouter>
   );
 }

@@ -23,8 +23,13 @@ export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const history = useHistory();
+  const [login, setlogin] = React.useState("Login");
 
   useEffect(() => {
+    if (localStorage.getItem("name") !== null) {
+      setlogin(localStorage.getItem("name"));
+      console.log("lll");
+    }
     if (value === 0) {
       history.push("/");
     } else if (value === 1) {
@@ -60,8 +65,8 @@ export default function SimpleBottomNavigation() {
             icon={<MovieIcon />}
           />
           <BottomNavigationAction
-            style={{ color: "white" }}
-            label="Login"
+            style={{ color: `orange` }}
+            label={login}
             icon={<AccountBox />}
           />
           <BottomNavigationAction
