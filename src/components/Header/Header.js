@@ -15,6 +15,7 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    background: "#fff",
   },
 };
 
@@ -73,7 +74,36 @@ const Header = () => {
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}> </h2>
         <div style={{ float: "right" }}>
-          <FaWindowClose onClick={closeModal} />
+          {/* <FaWindowClose onClick={closeModal} /> */}
+        </div>
+        {/* <br /> */}
+        <div class="container">
+          <div class="formHolder">
+            <div class="formHeader">
+              <p>Create Feed</p>
+            </div>
+            <form>
+              <div>
+                <h5>Heading</h5>
+                <input placeholder="Title" className="inputt" />
+              </div>
+              <div>
+                <h5>Tags</h5>
+                <input placeholder="#tags" className="inputt" />
+              </div>
+              <div>
+                <h5>Description</h5>
+                <textarea
+                  style={{ width: "350px", height: "100px" }}
+                ></textarea>
+              </div>
+              <div>
+                <button type="button" className="button1">
+                  POST
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </Modal>
     </div>
