@@ -7,8 +7,13 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 export default function Discussion() {
+  const history = useHistory();
   const { id } = useParams();
+  const [userId, setUserId] = useState("");
+  const [userName, setUserName] = useState("");
+  const [userComment, setUserComment] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [likes, setLikes] = useState(0);
@@ -30,7 +35,81 @@ export default function Discussion() {
         setPostedAt(response.data.discussion.postedAt);
         setComments(response.data.discussion.comments);
       });
+
+    try {
+      setUserId(localStorage.getItem("uid"));
+      setUserName(localStorage.getItem("name"));
+    } catch (e) {
+      alert("Please signin to react to the discussion !!!");
+      history.push("/signin");
+      console.log(e);
+    }
   }, []);
+  function update(e) {
+    e.preventDefault();
+    axios
+      .get(process.env.REACT_APP_BACKEND_API + "api/discussion/" + id)
+      .then((response) => {
+        setTitle(response.data.discussion.title);
+        setDescription(response.data.discussion.description);
+        setLikes(response.data.discussion.likes.length);
+        setDislikes(response.data.discussion.dislikes.length);
+        setTags(response.data.discussion.tags);
+        setPostedBy(response.data.discussion.postedBy.name);
+        setPostedAt(response.data.discussion.postedAt);
+        setComments(response.data.discussion.comments);
+      });
+  }
+  function AddLike(e) {
+    e.preventDefault();
+    if (id !== "" && userId !== "") {
+      axios({
+        method: "post",
+        url: process.env.REACT_APP_BACKEND_API + "api/discussion/like",
+        data: {
+          discussionId: id,
+          userId: userId,
+        },
+      });
+      update(e);
+    } else {
+      history.push("/signin");
+    }
+  }
+  function AddDislike(e) {
+    e.preventDefault();
+    if (id !== "" && userId !== "") {
+      axios({
+        method: "post",
+        url: process.env.REACT_APP_BACKEND_API + "api/discussion/dislike",
+        data: {
+          discussionId: id,
+          userId: userId,
+        },
+      });
+      update(e);
+    } else {
+      history.push("/signin");
+    }
+  }
+  function AddComment(e) {
+    e.preventDefault();
+    if (id !== "" && userId !== "") {
+      if (userComment !== "")
+        axios({
+          method: "post",
+          url: process.env.REACT_APP_BACKEND_API + "api/discussion/comment",
+          data: {
+            discussionId: id,
+            userId: userId,
+            comment: userComment,
+          },
+        });
+      update(e);
+    } else {
+      history.push("/signin");
+    }
+  }
   return (
     <div>
       <Paper elevation={3} className="DiscussionPaper">
@@ -41,7 +120,11 @@ export default function Discussion() {
           <div style={{ width: "50%" }}>
             <div style={{ float: "right" }}>
               {" "}
-              <IconButton aria-label="upload picture" component="span">
+              <IconButton
+                aria-label="upload picture"
+                component="span"
+                onClick={AddLike}
+              >
                 <div
                   style={{
                     display: "flex",
@@ -69,6 +152,7 @@ export default function Discussion() {
                 color="primary"
                 aria-label="upload picture"
                 component="span"
+                onClick={AddDislike}
               >
                 <div
                   style={{
@@ -158,10 +242,13 @@ export default function Discussion() {
             <div style={{ width: "90%" }}>
               <TextField
                 id="outlined-secondary"
-                label="Outlined secondary"
+                label="Comment"
                 variant="outlined"
-                color="secondary"
+                color="primary"
                 className="CommentBoxInput"
+                onChange={(e) => {
+                  setUserComment(e.target.value);
+                }}
               />
             </div>
             <div
@@ -187,7 +274,7 @@ export default function Discussion() {
                   }}
                 >
                   <div className="DiscussBtn">
-                    <button id="btn">
+                    <button id="btn" onClick={AddComment}>
                       <p id="btnText">Submit</p>
                     </button>
                   </div>
