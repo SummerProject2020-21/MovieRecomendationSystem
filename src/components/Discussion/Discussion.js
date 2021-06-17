@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Discussion.css";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 export default function Discussion() {
+  const { id } = useParams();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
+  const [tags, setTags] = useState([]);
+  const [postedBy, setPostedBy] = useState("");
+  const [postedAt, setPostedAt] = useState("0000-00-00 00:00:00");
+  const [Comments, setComments] = useState([]);
+  useEffect(async () => {
+    await axios
+      .get(process.env.REACT_APP_BACKEND_API + "api/discussion/" + id)
+      .then((response) => {
+        setTitle(response.data.discussion.title);
+        setDescription(response.data.discussion.description);
+        setLikes(response.data.discussion.likes.length);
+        setDislikes(response.data.discussion.dislikes.length);
+        setTags(response.data.discussion.tags);
+        setPostedBy(response.data.discussion.postedBy.name);
+        setPostedAt(response.data.discussion.postedAt);
+        setComments(response.data.discussion.comments);
+      });
+  }, []);
   return (
     <div>
       <Paper elevation={3} className="DiscussionPaper">
         <div style={{ width: "100%", display: "flex" }}>
           <div style={{ float: "left", width: "50%" }}>
-            <h1 style={{ margin: "0px", padding: "0px" }}>Heading</h1>
+            <h1 style={{ margin: "0px", padding: "0px" }}>{title}</h1>
           </div>
           <div style={{ width: "50%" }}>
             <div style={{ float: "right" }}>
@@ -35,7 +60,7 @@ export default function Discussion() {
                         fontSize: "20px",
                       }}
                     >
-                      12
+                      {likes}
                     </p>
                   </div>
                 </div>
@@ -63,7 +88,7 @@ export default function Discussion() {
                         fontSize: "20px",
                       }}
                     >
-                      12
+                      {dislikes}
                     </p>
                   </div>
                 </div>
@@ -73,28 +98,19 @@ export default function Discussion() {
         </div>
         <div className="DiscussionContent">
           <p style={{ marginTop: "0px" }}>
-            <span
-              style={{
-                fontSize: "1rem",
-                color: "#1167b1",
-                fontStyle: "italic",
-                margin: "0px",
-                padding: "0px",
-              }}
-            >
-              #hash-tag
-            </span>{" "}
-            <span
-              style={{
-                fontSize: "1rem",
-                color: "#1167b1",
-                fontStyle: "italic",
-                margin: "0px",
-                padding: "0px",
-              }}
-            >
-              #hash-tag
-            </span>
+            {tags.map((tag) => (
+              <span
+                style={{
+                  fontSize: "1rem",
+                  color: "#1167b1",
+                  fontStyle: "italic",
+                  margin: "0px",
+                  padding: "0px",
+                }}
+              >
+                {"#" + tag + " "}
+              </span>
+            ))}
             <br />
             <span
               style={{
@@ -106,21 +122,11 @@ export default function Discussion() {
                 padding: "0px",
               }}
             >
-              Posted by: Name
+              Posted by: {postedBy}
             </span>
             <br />
             <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae
-            scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices
-            nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue
-            ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in
-            odio. Praesent convallis urna a lacus interdum ut hendrerit risus
-            congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim
-            ac. In at libero sed nunc venenatis imperdiet sed ornare turpis.
-            Donec vitae dui eget tellus gravida venenatis. Integer fringilla
-            congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.
-            Cras ac leo purus. Mauris quis diam velit.
+            {description}
             <br />
             <br />
             <span
@@ -132,7 +138,8 @@ export default function Discussion() {
                 margin: "0px",
               }}
             >
-              Posted on: date
+              Posted on:{" "}
+              {postedAt.substring(0, 10) + " " + postedAt.substring(11, 19)}
             </span>
             <br />
             <br />
@@ -180,9 +187,6 @@ export default function Discussion() {
                   }}
                 >
                   <div className="DiscussBtn">
-                    {/* <Button variant="contained" color="primary">
-                      <b>Submit</b>
-                    </Button> */}
                     <button id="btn">
                       <p id="btnText">Submit</p>
                     </button>
@@ -194,14 +198,18 @@ export default function Discussion() {
         </div>
         <div>
           <h2>Comments:</h2>
-          <div style={{ width: "100%", borderBottom: "1px solid black" }}>
-            <h3>Name</h3>
-            <p>Comment</p>
-          </div>
-          <div style={{ width: "100%", borderBottom: "1px solid black" }}>
-            <h3>Name</h3>
-            <p>Comment</p>
-          </div>
+          {Comments.map((comment) => (
+            <div
+              style={{
+                width: "100%",
+                borderBottom: "1px solid black",
+                paddingBottom: "10px",
+              }}
+            >
+              <h3>{comment.name}</h3>
+              <p>{comment.comment}</p>
+            </div>
+          ))}
         </div>
       </Paper>
     </div>
