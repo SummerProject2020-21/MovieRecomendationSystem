@@ -1,14 +1,37 @@
 import React, { useEffect, useState } from "react";
 import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import SearchIcon from "@material-ui/icons/Search";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import {
+  Button,
+  TextField,
+  ThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core";
 export default function AllDiscussion() {
   const [discussions, setDiscussions] = useState([]);
+  const [searchText, setSearchText] = useState("");
   const history = useHistory();
+  const fetchSearch = async () => {
+    try {
+      const { data } = await axios({
+        method: "post",
+        url: process.env.REACT_APP_BACKEND_API + "api/discussion/search",
+        data: {
+          search: searchText,
+        },
+      });
+      setDiscussions(data);
+      console.log(1, data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(async () => {
     console.log("here");
     // GET request using axios inside useEffect React hook
@@ -21,8 +44,34 @@ export default function AllDiscussion() {
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: "dark",
+      primary: {
+        main: "#fff",
+      },
+    },
+  });
   return (
     <div>
+      <ThemeProvider theme={darkTheme}>
+        <div className="search">
+          <TextField
+            style={{ flex: 1 }}
+            className="searchBox"
+            label="Search"
+            variant="filled"
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <Button
+            onClick={fetchSearch}
+            variant="contained"
+            style={{ marginLeft: 10 }}
+          >
+            <SearchIcon fontSize="large" />
+          </Button>
+        </div>
+      </ThemeProvider>
       {discussions.map((discussion) => (
         <Paper
           elevation={3}
