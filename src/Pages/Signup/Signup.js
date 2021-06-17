@@ -40,6 +40,8 @@ export default function Signup() {
         if (result.message === "Success") {
           localStorage.setItem("email", result.user.email);
           localStorage.setItem("name", result.user.firstName);
+          localStorage.setItem("uid", result.user.uid);
+          console.log(result.user);
           alert(result.message);
           ok = 1;
         } else {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@800&family=Noto+Sans+JP:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@800&family=Noto+Sans+JP:wght@900&display=swap");
 .header {
   width: 100%;
   cursor: pointer;
@@ -7,8 +7,8 @@
   justify-content: center;
   text-transform: uppercase;
   /* background-color: #39445a; */
-  background-image: linear-gradient(#39445a,#455880,#39445a);
-  font-family: 'Baloo Tammudu 2', cursive;
+  background-image: linear-gradient(#39445a, #455880, #39445a);
+  font-family: "Baloo Tammudu 2", cursive;
   font-size: 2.5vw;
   font-weight: bold;
   /* padding-bottom: 15px; */
@@ -22,4 +22,47 @@
     padding-top: 15px;
     font-size: 6.4vw;
   }
+}
+
+.formHolder {
+  background-color: white;
+  color: white;
+  width: 500px;
+  height: 600px;
+  border: none;
+  border-radius: 15px;
+}
+.formHeader {
+  background-color: #24245c;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  height: 150px;
+  margin-top: -25px;
+  border-radius: 15px 15px 0 0;
+}
+.formHeader p {
+  padding: 50px;
+}
+.formHolder form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #24245c;
+}
+
+.inputt {
+  border: none;
+  border-bottom: 2px solid #d3d5f1;
+  width: 300px;
+  height: 40px;
+}
+.button1 {
+  background-color: #24245c;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  width: 200px;
+  height: 60px;
+  margin-top: 10px;
 }
