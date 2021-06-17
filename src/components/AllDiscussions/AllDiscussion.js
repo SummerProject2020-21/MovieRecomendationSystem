@@ -10,16 +10,12 @@ export default function AllDiscussion() {
   const [discussions, setDiscussions] = useState([]);
   const history = useHistory();
   useEffect(async () => {
-    console.log("here");
-    // GET request using axios inside useEffect React hook
     await axios
       .get(process.env.REACT_APP_BACKEND_API + "api/discussion/alldiscussions")
       .then((response) => {
         setDiscussions(response.data.discussions);
         console.log(response.data.discussions);
       });
-
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
   return (
     <div>
