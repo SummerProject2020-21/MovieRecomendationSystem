@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(100);
+  const [value, setValue] = React.useState(0);
   const history = useHistory();
   const [login, setlogin] = React.useState("Login");
 
@@ -42,7 +42,7 @@ export default function SimpleBottomNavigation() {
     } else if (value == 4) {
       history.push("/search");
     } else if (value == 5) {
-      history.push("/discussion");
+      history.push("/alldiscussions");
     }
   }, [value, history]);
 
