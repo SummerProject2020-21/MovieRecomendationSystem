@@ -31,7 +31,7 @@ function App() {
             <Route path="/signup" component={Signup} exact />
             <Route path="/signin" component={Signin} exact />
             <Route path="/signup" component={Signup} exact />
-            <Route path="/discussion" component={Discussion} exact />
+            <Route path="/discussion/:id" component={Discussion} />
             <Route path="/alldiscussions" component={AllDiscussion} />
             <Route path="/pastmovies" component={PreviousMovies} />
             <Route path="/fourms" component={Discussion} />

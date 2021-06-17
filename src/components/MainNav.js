@@ -42,7 +42,7 @@ export default function SimpleBottomNavigation() {
     } else if (value == 4) {
       history.push("/search");
     } else if (value == 5) {
-      history.push("/discussion");
+      history.push("/alldiscussions");
     }
   }, [value, history]);
 
