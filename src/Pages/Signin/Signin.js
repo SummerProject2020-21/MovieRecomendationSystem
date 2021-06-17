@@ -35,6 +35,7 @@ export default function Signin() {
         if (result.message === "Success") {
           localStorage.setItem("email", result.user.email);
           localStorage.setItem("name", result.user.firstName);
+          localStorage.setItem("uid", result.user._id);
           alert(result.message);
           ok = 1;
         } else {

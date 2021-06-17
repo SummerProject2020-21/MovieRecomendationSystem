@@ -34,6 +34,42 @@ const Header = () => {
   function closeModal() {
     setIsOpen(false);
   }
+
+  const [heading, setHeading] = React.useState("");
+  const [description, setDescription] = React.useState("");
+  const [tags, setTags] = React.useState("");
+  var ok = 0;
+
+  function Submit() {
+    ok = 0;
+    fetch(process.env.REACT_APP_BACKEND_API + "api/discussion/adddiscussion", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        heading: heading,
+        description: description,
+        userId: localStorage.getItem("uid"),
+        tags: tags,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.message === "Success") {
+          console.log(result.message);
+          ok = 1;
+        } else {
+          alert(result.message);
+          ok = 0;
+        }
+      })
+      .then(() => {
+        if (ok == 1) window.location.reload(false);
+      });
+  }
+
   const history = useHistory();
   return (
     <div>
@@ -51,19 +87,22 @@ const Header = () => {
             <Fade top> 🎬 Movie Recommendation System</Fade>
           </span>
         </div>
-        <div
-          style={{
-            float: "right",
-            background: "gray",
-            paddingTop: "16px",
-            paddingLeft: "27px",
-            cursor: "pointer",
-          }}
-          onClick={(e) => setIsOpen(true)}
-        >
-          <AddToPhotosIcon style={{ height: "30px", width: "40px" }} />
-          Create
-        </div>
+
+        {localStorage.getItem("uid") !== null && (
+          <div
+            style={{
+              float: "right",
+              background: "gray",
+              paddingTop: "16px",
+              paddingLeft: "27px",
+              cursor: "pointer",
+            }}
+            onClick={(e) => setIsOpen(true)}
+          >
+            <AddToPhotosIcon style={{ height: "30px", width: "40px" }} />
+            Create
+          </div>
+        )}
       </div>
       <Modal
         isOpen={modalIsOpen}
@@ -85,20 +124,29 @@ const Header = () => {
             <form>
               <div>
                 <h5>Heading</h5>
-                <input placeholder="Title" className="inputt" />
+                <input
+                  placeholder="Title"
+                  className="inputt"
+                  onChange={(e) => setHeading(e.target.value)}
+                />
               </div>
               <div>
                 <h5>Tags</h5>
-                <input placeholder="#tag1 #tag2 #tag3" className="inputt" />
+                <input
+                  placeholder="#tag1 #tag2 #tag3"
+                  className="inputt"
+                  onChange={(e) => setTags(e.target.value)}
+                />
               </div>
               <div>
                 <h5>Description</h5>
                 <textarea
                   style={{ width: "350px", height: "100px" }}
+                  onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
               </div>
               <div>
-                <button type="button" className="button1">
+                <button type="button" className="button1" onClick={Submit}>
                   POST
                 </button>
               </div>
