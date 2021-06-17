@@ -89,7 +89,7 @@ const Header = () => {
               </div>
               <div>
                 <h5>Tags</h5>
-                <input placeholder="#tags" className="inputt" />
+                <input placeholder="#tag1 #tag2 #tag3" className="inputt" />
               </div>
               <div>
                 <h5>Description</h5>
